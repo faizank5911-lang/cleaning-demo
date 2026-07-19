@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jehanzeb Electric Hub — Licensed Electrical Contractor, Peshawar</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+:root{
+  --bg:#12161b;
+  --surface:#1b2129;
+  --surface-2:#222a33;
+  --line:#2c3541;
+  --accent:#f5b700;
+  --accent-dim:#8a6c17;
+  --copper:#c97c4a;
+  --text:#f3f1ea;
+  --text-muted:#93a0ac;
+  --live:#46d9a6;
+  --danger:#e5484d;
+  --radius:10px;
+  --font-display:'Space Grotesk', sans-serif;
+  --font-body:'Inter', sans-serif;
+  --font-mono:'IBM Plex Mono', monospace;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+html{scroll-behavior:smooth;}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font-body);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    linear-gradient(rgba(245,183,0,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245,183,0,0.025) 1px, transparent 1px);
+  background-size:48px 48px;
+  z-index:0;
+}
+
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+button{font-family:inherit;cursor:pointer;}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+
+:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+}
+
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:12.5px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--accent);
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+.eyebrow::before{
+  content:"";
+  width:7px;height:7px;
+  border-radius:50%;
+  background:var(--live);
+  box-shadow:0 0 8px var(--live);
+  flex:none;
+}
+
+h1,h2,h3{font-family:var(--font-display);font-weight:700;letter-spacing:-0.01em;color:var(--text);}
+
+/* ---------- HEADER ---------- */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(18,22,27,0.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 28px;
+  max-width:1180px;margin:0 auto;
+}
+.logo{
+  display:flex;align-items:center;gap:11px;
+  font-family:var(--font-display);font-weight:700;font-size:17px;
+}
+.logo-mark{
+  width:36px;height:36px;border-radius:8px;
+  background:var(--surface-2);
+  border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.logo-mark svg{width:19px;height:19px;}
+.logo-sub{
+  display:block;font-family:var(--font-mono);font-weight:500;
+  font-size:10.5px;color:var(--text-muted);letter-spacing:0.06em;
+  text-transform:uppercase;margin-top:1px;
+}
+nav{display:flex;align-items:center;gap:30px;}
+nav a{
+  font-size:14.5px;color:var(--text-muted);font-weight:500;
+  transition:color .15s;
+}
+nav a:hover{color:var(--text);}
+.nav-links{display:flex;gap:28px;}
+.header-cta{display:flex;align-items:center;gap:14px;}
+.phone-chip{
+  font-family:var(--font-mono);font-size:13.5px;color:var(--text);
+  display:flex;align-items:center;gap:7px;
+}
+.phone-chip svg{width:14px;height:14px;color:var(--accent);flex:none;}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px 22px;border-radius:7px;
+  font-weight:600;font-size:14.5px;
+  border:1px solid transparent;
+  transition:transform .15s, background .15s, border-color .15s;
+  white-space:nowrap;
+}
+.btn:active{transform:translateY(1px);}
+.btn-primary{background:var(--accent);color:#191300;}
+.btn-primary:hover{background:#ffc730;}
+.btn-outline{border-color:var(--line);color:var(--text);}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);}
+.btn-sm{padding:9px 16px;font-size:13.5px;}
+
+.menu-toggle{display:none;background:none;border:1px solid var(--line);border-radius:7px;width:40px;height:40px;align-items:center;justify-content:center;color:var(--text);}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;z-index:1;
+  padding:76px 0 88px;
+  border-bottom:1px solid var(--line);
+  overflow:hidden;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;
+}
+.hero h1{
+  font-size:clamp(38px,4.6vw,60px);
+  line-height:1.04;
+  margin:18px 0 20px;
+}
+.hero h1 em{
+  font-style:normal;color:var(--accent);
+}
+.hero p.lead{
+  font-size:17.5px;color:var(--text-muted);max-width:480px;margin-bottom:32px;
+}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:38px;}
+.hero-trust{
+  display:flex;gap:28px;flex-wrap:wrap;
+  padding-top:26px;border-top:1px solid var(--line);
+}
+.trust-item{display:flex;flex-direction:column;gap:3px;}
+.trust-item .n{font-family:var(--font-mono);font-weight:600;color:var(--accent);font-size:15px;}
+.trust-item .l{font-size:12.5px;color:var(--text-muted);}
+
+/* Breaker panel signature visual */
+.panel-visual{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:26px;
+  position:relative;
+}
+.panel-head{
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--font-mono);font-size:11.5px;color:var(--text-muted);
+  letter-spacing:0.08em;text-transform:uppercase;
+  padding-bottom:16px;margin-bottom:18px;border-bottom:1px dashed var(--line);
+}
+.panel-head .status{display:flex;align-items:center;gap:6px;color:var(--live);}
+.panel-head .status .dot{width:6px;height:6px;border-radius:50%;background:var(--live);box-shadow:0 0 6px var(--live);animation:blink 2.4s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.35;}}
+
+.breaker-row{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:22px;
+}
+.breaker{
+  background:var(--surface-2);
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:10px 8px 12px;
+  text-align:center;
+  opacity:0;
+  transform:translateY(6px);
+  animation:energize .5s ease forwards;
+}
+.breaker .sw{
+  width:22px;height:34px;border-radius:5px;
+  background:#141920;border:1px solid var(--line);
+  margin:0 auto 8px;position:relative;overflow:hidden;
+}
+.breaker .sw::after{
+  content:"";position:absolute;left:2px;right:2px;height:14px;
+  background:var(--text-muted);border-radius:3px;
+  top:2px;transition:all .4s;
+}
+.breaker.on .sw::after{background:var(--accent);box-shadow:0 0 8px var(--accent);top:auto;bottom:2px;}
+.breaker .lbl{font-family:var(--font-mono);font-size:9.5px;color:var(--text-muted);letter-spacing:.03em;}
+.breaker .num{font-family:var(--font-mono);font-size:9px;color:var(--copper);display:block;margin-bottom:3px;}
+
+@keyframes energize{to{opacity:1;transform:translateY(0);}}
+
+.panel-meter{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  padding-top:18px;border-top:1px dashed var(--line);
+}
+.meter-label{font-family:var(--font-mono);font-size:11px;color:var(--text-muted);}
+.meter-value{font-family:var(--font-mono);font-size:26px;color:var(--accent);font-weight:600;}
+
+@media (prefers-reduced-motion: reduce){
+  .breaker{animation:none;opacity:1;transform:none;}
+  .panel-head .status .dot{animation:none;}
+}
+
+/* ---------- SECTION SHARED ---------- */
+section{position:relative;z-index:1;padding:88px 0;}
+.section-head{max-width:620px;margin-bottom:52px;}
+.section-head h2{font-size:clamp(28px,3.4vw,38px);margin:14px 0 12px;}
+.section-head p{color:var(--text-muted);font-size:16px;}
+.divider{border-bottom:1px solid var(--line);}
+
+/* ---------- SERVICES (breaker panel grid) ---------- */
+.services{background:var(--surface);}
+.svc-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+}
+.svc-card{
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:26px;
+  transition:border-color .2s, transform .2s;
+}
+.svc-card:hover{border-color:var(--accent-dim);transform:translateY(-3px);}
+.svc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;}
+.svc-circuit{font-family:var(--font-mono);font-size:11px;color:var(--copper);}
+.svc-switch{
+  width:30px;height:16px;border-radius:9px;background:#141920;border:1px solid var(--line);
+  position:relative;flex:none;
+}
+.svc-switch::after{
+  content:"";position:absolute;top:1px;right:1px;width:12px;height:12px;border-radius:50%;
+  background:var(--live);box-shadow:0 0 6px var(--live);
+}
+.svc-icon{
+  width:38px;height:38px;border-radius:8px;background:var(--surface-2);
+  display:flex;align-items:center;justify-content:center;margin-bottom:16px;
+}
+.svc-icon svg{width:19px;height:19px;color:var(--accent);}
+.svc-card h3{font-size:17px;margin-bottom:8px;}
+.svc-card p{font-size:14px;color:var(--text-muted);}
+
+/* ---------- STATS ---------- */
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+.stat{background:var(--bg);padding:30px 24px;}
+.stat .gauge{font-family:var(--font-mono);font-size:34px;font-weight:600;color:var(--accent);}
+.stat .gauge span{font-size:18px;color:var(--copper);}
+.stat .glabel{font-size:13px;color:var(--text-muted);margin-top:6px;}
+
+/* ---------- PROCESS ---------- */
+.process-list{display:flex;flex-direction:column;}
+.process-item{
+  display:grid;grid-template-columns:90px 1fr;gap:26px;
+  padding:28px 0;border-top:1px solid var(--line);
+}
+.process-item:last-child{border-bottom:1px solid var(--line);}
+.process-step{font-family:var(--font-mono);font-size:13px;color:var(--copper);padding-top:3px;}
+.process-body h3{font-size:19px;margin-bottom:6px;}
+.process-body p{color:var(--text-muted);font-size:15px;max-width:560px;}
+
+/* ---------- TESTIMONIALS ---------- */
+.testimonials{background:var(--surface);}
+.tm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.tm-card{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:26px;}
+.tm-quote{font-size:15px;color:var(--text);margin-bottom:20px;}
+.tm-who{display:flex;align-items:center;gap:12px;}
+.tm-avatar{width:36px;height:36px;border-radius:50%;background:var(--surface-2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:13px;color:var(--accent);}
+.tm-name{font-size:13.5px;font-weight:600;}
+.tm-loc{font-size:12px;color:var(--text-muted);}
+.tm-stars{color:var(--accent);font-size:13px;margin-bottom:10px;letter-spacing:2px;}
+
+/* ---------- CONTACT ---------- */
+.contact-grid{display:grid;grid-template-columns:1fr 0.85fr;gap:40px;}
+.form-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:34px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.field{display:flex;flex-direction:column;gap:7px;margin-bottom:14px;}
+.field label{font-size:12.5px;font-family:var(--font-mono);color:var(--text-muted);letter-spacing:.03em;}
+.field input,.field select,.field textarea{
+  background:var(--bg);border:1px solid var(--line);border-radius:7px;
+  padding:12px 13px;color:var(--text);font-family:var(--font-body);font-size:14.5px;
+}
+.field textarea{resize:vertical;min-height:90px;}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent);outline:none;}
+.form-note{font-size:12.5px;color:var(--text-muted);margin-top:14px;}
+
+.info-card{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:30px;margin-bottom:18px;}
+.info-row{display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--line);}
+.info-row:first-of-type{border-top:none;padding-top:0;}
+.info-icon{width:34px;height:34px;border-radius:8px;background:var(--surface-2);display:flex;align-items:center;justify-content:center;flex:none;}
+.info-icon svg{width:16px;height:16px;color:var(--accent);}
+.info-label{font-size:12px;font-family:var(--font-mono);color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;}
+.info-value{font-size:14.5px;margin-top:2px;}
+.emergency-card{
+  background:linear-gradient(135deg, rgba(229,72,77,0.12), rgba(229,72,77,0.02));
+  border:1px solid rgba(229,72,77,0.35);border-radius:14px;padding:24px;
+}
+.emergency-card .eyebrow::before{background:var(--danger);box-shadow:0 0 8px var(--danger);}
+.emergency-card .eyebrow{color:var(--danger);}
+.emergency-card h3{font-size:18px;margin:10px 0 8px;}
+.emergency-card p{font-size:14px;color:var(--text-muted);margin-bottom:16px;}
+
+/* ---------- FOOTER ---------- */
+footer{border-top:1px solid var(--line);padding:44px 0 30px;}
+.footer-grid{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:30px;margin-bottom:34px;}
+.footer-links{display:flex;gap:36px;flex-wrap:wrap;}
+.footer-col h4{font-family:var(--font-mono);font-size:11.5px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;}
+.footer-col a{display:block;font-size:14px;color:var(--text);margin-bottom:9px;}
+.footer-col a:hover{color:var(--accent);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--line);flex-wrap:wrap;gap:12px;}
+.footer-bottom p{font-size:12.5px;color:var(--text-muted);}
+.footer-tag{font-size:13px;color:var(--text-muted);max-width:280px;margin-top:12px;}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px){
+  .nav-links{display:none;}
+  .menu-toggle{display:flex;}
+  .hero-grid{grid-template-columns:1fr;}
+  .panel-visual{order:-1;}
+  .svc-grid{grid-template-columns:1fr 1fr;}
+  .stats-grid{grid-template-columns:1fr 1fr;}
+  .tm-grid{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+  .process-item{grid-template-columns:1fr;gap:8px;}
+}
+@media (max-width: 560px){
+  .svc-grid{grid-template-columns:1fr;}
+  .stats-grid{grid-template-columns:1fr;}
+  .breaker-row{grid-template-columns:repeat(2,1fr);}
+  .form-row{grid-template-columns:1fr;}
+  .hero-actions .btn{width:100%;}
+  .phone-chip{display:none;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="#top" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+      </span>
+      <span>
+        JEH
+        <span class="logo-sub">Electric Hub</span>
+      </span>
+    </a>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#process">Process</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-cta">
+      <span class="phone-chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        0333 901 4477
+      </span>
+      <a href="#contact" class="btn btn-primary btn-sm">Get a Quote</a>
+    </div>
+    <button class="menu-toggle" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Licensed Electrical Contractor · Peshawar, KP</span>
+        <h1>Power that<br>doesn't <em>trip out</em> on you.</h1>
+        <p class="lead">Jehanzeb Electric Hub wires, repairs and future-proofs homes and businesses across Peshawar — from a single faulty switch to a full commercial panel upgrade.</p>
+        <div class="hero-actions">
+          <a href="tel:+923339014477" class="btn btn-primary">Call for Same-Day Service</a>
+          <a href="#contact" class="btn btn-outline">Request a Quote</a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item"><span class="n">14+ yrs</span><span class="l">In the trade</span></div>
+          <div class="trust-item"><span class="n">800+</span><span class="l">Panels &amp; installs completed</span></div>
+          <div class="trust-item"><span class="n">24/7</span><span class="l">Emergency call-out</span></div>
+          <div class="trust-item"><span class="n">Licensed</span><span class="l">&amp; fully insured</span></div>
+        </div>
+      </div>
+
+      <div class="panel-visual">
+        <div class="panel-head">
+          <span>Main Panel · JEH-01</span>
+          <span class="status"><span class="dot"></span>Live</span>
+        </div>
+        <div class="breaker-row" id="breakerRow">
+          <div class="breaker on" style="animation-delay:.05s"><span class="num">01</span><div class="sw"></div><span class="lbl">WIRING</span></div>
+          <div class="breaker on" style="animation-delay:.15s"><span class="num">02</span><div class="sw"></div><span class="lbl">SOLAR</span></div>
+          <div class="breaker on" style="animation-delay:.25s"><span class="num">03</span><div class="sw"></div><span class="lbl">UPS/GEN</span></div>
+          <div class="breaker on" style="animation-delay:.35s"><span class="num">04</span><div class="sw"></div><span class="lbl">REPAIR</span></div>
+          <div class="breaker on" style="animation-delay:.45s"><span class="num">05</span><div class="sw"></div><span class="lbl">SAFETY</span></div>
+          <div class="breaker on" style="animation-delay:.55s"><span class="num">06</span><div class="sw"></div><span class="lbl">COMM'L</span></div>
+          <div class="breaker on" style="animation-delay:.65s"><span class="num">07</span><div class="sw"></div><span class="lbl">SMART</span></div>
+          <div class="breaker on" style="animation-delay:.75s"><span class="num">08</span><div class="sw"></div><span class="lbl">STANDBY</span></div>
+        </div>
+        <div class="panel-meter">
+          <div>
+            <div class="meter-label">SYSTEM LOAD</div>
+            <div class="meter-value">98<span>%</span></div>
+          </div>
+          <div style="text-align:right">
+            <div class="meter-label">STATUS</div>
+            <div class="meter-value" style="color:var(--live);font-size:16px;">ALL CIRCUITS OK</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Service Panel</span>
+        <h2>Six circuits, one hub.</h2>
+        <p>Every job we take on runs through one of these lines — residential, commercial, or somewhere in between.</p>
+      </div>
+      <div class="svc-grid">
+
+        <div class="svc-card">
+          <div class="svc-top"><span class="svc-circuit">CKT · 01</span><span class="svc-switch"></span></div>
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"></path></svg></div>
+          <h3>House &amp; Building Wiring</h3>
+          <p>New construction wiring, rewiring old properties, and concealed wiring done to code — not to shortcuts.</p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-top"><span class="svc-circuit">CKT · 02</span><span class="svc-switch"></span></div>
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line></svg></div>
+          <h3>Solar Panel Installation</h3>
+          <p>Grid-tied and hybrid solar setups sized to your actual load, with net metering paperwork handled for you.</p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-top"><span class="svc-circuit">CKT · 03</span><span class="svc-switch"></span></div>
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="8" y1="7" x2="16" y2="7"></line><line x1="8" y1="11" x2="16" y2="11"></line></svg></div>
+          <h3>Generator &amp; UPS Setup</h3>
+          <p>Automatic changeover wiring for generators and UPS units, so loadshedding stops being a household event.</p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-top"><span class="svc-circuit">CKT · 04</span><span class="svc-switch"></span></div>
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg></div>
+          <h3>Fault Finding &amp; Repair</h3>
+          <p>Tripping breakers, flickering lights, dead sockets — diagnosed properly and fixed at the source, not patched.</p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-top"><span class="svc-circuit">CKT · 05</span><span class="svc-switch"></span></div>
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+          <h3>Panel Upgrades &amp; Safety</h3>
+          <p>Old fuse boxes swapped for breaker panels with earthing and surge protection that actually meets standard.</p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-top"><span class="svc-circuit">CKT · 06</span><span class="svc-switch"></span></div>
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="18" x2="12" y2="21"></line></svg></div>
+          <h3>Commercial &amp; Shop Fit-Outs</h3>
+          <p>Retail, office and workshop electrical fit-outs — lighting, three-phase power, and load calculations.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats" id="why">
+    <div class="wrap">
+      <div class="stats-grid">
+        <div class="stat"><div class="gauge">14<span>yrs</span></div><div class="glabel">Serving Peshawar households &amp; businesses</div></div>
+        <div class="stat"><div class="gauge">800<span>+</span></div><div class="glabel">Panels, rewires &amp; solar installs completed</div></div>
+        <div class="stat"><div class="gauge">45<span>min</span></div><div class="glabel">Average emergency response time in-city</div></div>
+        <div class="stat"><div class="gauge">4.9<span>/5</span></div><div class="glabel">Average client rating across jobs</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">How It Runs</span>
+        <h2>From call to current, in five steps.</h2>
+        <p>No surprise callouts, no vague estimates. This is the same sequence for a single socket or a full commercial rewire.</p>
+      </div>
+      <div class="process-list">
+        <div class="process-item">
+          <div class="process-step">01 / CALL</div>
+          <div class="process-body"><h3>You call or message us</h3><p>Tell us what's happening — a live phone line usually gets you a same-day slot for anything urgent.</p></div>
+        </div>
+        <div class="process-item">
+          <div class="process-step">02 / INSPECT</div>
+          <div class="process-body"><h3>We inspect on site</h3><p>A licensed electrician checks the wiring, load, and panel condition before recommending anything.</p></div>
+        </div>
+        <div class="process-item">
+          <div class="process-step">03 / QUOTE</div>
+          <div class="process-body"><h3>You get a written quote</h3><p>Fixed price, materials listed, no changes once work starts unless you ask for something extra.</p></div>
+        </div>
+        <div class="process-item">
+          <div class="process-step">04 / INSTALL</div>
+          <div class="process-body"><h3>We do the work</h3><p>Clean cable runs, proper earthing, and a tidy site when we're done — not just a working switch.</p></div>
+        </div>
+        <div class="process-item">
+          <div class="process-step">05 / TEST</div>
+          <div class="process-body"><h3>Test, walkthrough &amp; handover</h3><p>Every circuit is load-tested and shown to you before we consider the job finished.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="reviews">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Client Feedback</span>
+        <h2>What people call us back for.</h2>
+      </div>
+      <div class="tm-grid">
+        <div class="tm-card">
+          <div class="tm-stars">★★★★★</div>
+          <p class="tm-quote">"Our shop's lighting panel was rewired overnight before Eid rush. Clean work, and they explained every breaker before leaving."</p>
+          <div class="tm-who"><span class="tm-avatar">RA</span><div><div class="tm-name">Rashid Ali</div><div class="tm-loc">Shop owner, University Road</div></div></div>
+        </div>
+        <div class="tm-card">
+          <div class="tm-stars">★★★★★</div>
+          <p class="tm-quote">"Called about a tripping breaker at 11pm, someone was at the house within the hour. Turned out to be a wiring fault they fixed properly."</p>
+          <div class="tm-who"><span class="tm-avatar">SK</span><div><div class="tm-name">Sana Khan</div><div class="tm-loc">Homeowner, Hayatabad</div></div></div>
+        </div>
+        <div class="tm-card">
+          <div class="tm-stars">★★★★★</div>
+          <p class="tm-quote">"Solar and UPS changeover installed together so it switches automatically during loadshedding. No more resetting anything by hand."</p>
+          <div class="tm-who"><span class="tm-avatar">FH</span><div><div class="tm-name">Farhan Hussain</div><div class="tm-loc">Office manager, Saddar</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Get In Touch</span>
+        <h2>Tell us what's not working.</h2>
+        <p>Fill in the details and we'll get back with a time slot, usually the same day.</p>
+      </div>
+      <div class="contact-grid">
+
+        <form class="form-card" onsubmit="event.preventDefault(); this.querySelector('.form-note').textContent='Thanks — we\'ll call you back shortly.'; this.querySelector('.form-note').style.color='var(--live)';">
+          <div class="form-row">
+            <div class="field"><label for="name">Full name</label><input id="name" type="text" placeholder="Your name" required></div>
+            <div class="field"><label for="phone">Phone number</label><input id="phone" type="tel" placeholder="03XX-XXXXXXX" required></div>
+          </div>
+          <div class="field">
+            <label for="service">Service needed</label>
+            <select id="service">
+              <option>House / Building Wiring</option>
+              <option>Solar Panel Installation</option>
+              <option>Generator &amp; UPS Setup</option>
+              <option>Fault Finding &amp; Repair</option>
+              <option>Panel Upgrade &amp; Safety</option>
+              <option>Commercial Fit-Out</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="msg">What's going on?</label>
+            <textarea id="msg" placeholder="Briefly describe the issue or the job..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">Send Request</button>
+          <p class="form-note">We usually reply within the hour during working hours.</p>
+        </form>
+
+        <div>
+          <div class="info-card">
+            <div class="info-row">
+              <span class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span>
+              <div><div class="info-label">Phone</div><div class="info-value">0333 901 4477</div></div>
+            </div>
+            <div class="info-row">
+              <span class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></span>
+              <div><div class="info-label">WhatsApp</div><div class="info-value">0333 901 4477</div></div>
+            </div>
+            <div class="info-row">
+              <span class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"></path><path d="M22 6 12 13 2 6"></path><path d="M2 6h20v12H2z"></path></svg></span>
+              <div><div class="info-label">Email</div><div class="info-value">info@jehanzebelectrichub.pk</div></div>
+            </div>
+            <div class="info-row">
+              <span class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
+              <div><div class="info-label">Service area</div><div class="info-value">Peshawar &amp; surrounding KP districts</div></div>
+            </div>
+            <div class="info-row">
+              <span class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
+              <div><div class="info-label">Working hours</div><div class="info-value">Sat–Thu, 8:00 AM – 9:00 PM</div></div>
+            </div>
+          </div>
+
+          <div class="emergency-card">
+            <span class="eyebrow">Emergency Line</span>
+            <h3>Sparking, burning smell, or total outage?</h3>
+            <p>Don't wait for the form. Call the emergency line directly — available around the clock, every day.</p>
+            <a href="tel:+923339014477" class="btn" style="background:var(--danger); color:#fff; width:100%;">Call Emergency Line Now</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="#top" class="logo">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          </span>
+          <span>JEH<span class="logo-sub">Electric Hub</span></span>
+        </a>
+        <p class="footer-tag">Licensed electrical contracting for homes and businesses across Peshawar — wiring, solar, panels, and round-the-clock repair.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="#services">Wiring</a>
+          <a href="#services">Solar</a>
+          <a href="#services">Generator &amp; UPS</a>
+          <a href="#services">Repairs</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#why">Why Us</a>
+          <a href="#process">Process</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="tel:+923339014477">0333 901 4477</a>
+          <a href="mailto:info@jehanzebelectrichub.pk">Email us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Jehanzeb Electric Hub. All rights reserved.</p>
+      <p>Peshawar, Khyber Pakhtunkhwa, Pakistan</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelector('.menu-toggle').addEventListener('click', function(){
+  var nav = document.querySelector('.nav-links');
+  var open = nav.style.display === 'flex';
+  nav.style.display = open ? 'none' : 'flex';
+  nav.style.cssText += open ? '' : 'position:fixed;top:73px;left:0;right:0;background:#12161b;flex-direction:column;padding:20px 28px;border-bottom:1px solid #2c3541;gap:16px;';
+});
+</script>
+
+</body>
+</html>
